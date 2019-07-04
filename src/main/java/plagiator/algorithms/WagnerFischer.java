@@ -39,14 +39,6 @@ public class WagnerFischer {
     }
 
     /**
-     * Runs the algorithm for computing the similarity of two strings.
-     */
-    public static float runAlgorithm(String s1, String s2) {
-        return (getPercentageSimilarity(getLevenshteinDistance(s1, s2), s1.length(), s2.length()));
-    }
-
-
-    /**
      * Fills the Levenshtein matrix.
      */
     private static int[][] fillLevenshteinMatrix(char[] s1, char[] s2) {
