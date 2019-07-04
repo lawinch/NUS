@@ -14,6 +14,6 @@ public class PlagiarismDetectionController {
     public Similarity greeting(@RequestParam(value="template1", defaultValue="") String template1,
                              @RequestParam(value="template2", defaultValue="") String template2) {
         float similarity = WagnerFischer.getSimilarityScore(template1, template2);
-        return new Similarity(similarity);
+        return new Similarity(similarity, template1);
     }
 }
