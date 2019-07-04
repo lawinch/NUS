@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+
+  <title>Signin Template for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+<form action="http://127.0.0.1:8080/detect">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="input-group">
+          <!--<label for="inputAuthoredText">Your text</label>-->
+          <textarea  width="400" type="text" class="form-control" id="inputAuthoredText" aria-describedby="inputHelp"
+                    placeholder="Enter your text here" name="template1"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary" id="buttonCheck">Check</button>
+      </div>
+      <div class="col-sm-5">
+        <div class="input-group">
+          <!--<label for="inputCheckSource">Text to check against</label>-->
+          <textarea width="400" class="form-control" id="inputCheckSource" aria-describedby="inputHelp" placeholder="Text to check against" name="template2"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row align-self-center">
+      <!--<p class="mt-5 mb-3 text-muted align-content-center">&copy; 2019-2019</p>-->
+
+    </div>
+  </div>
+</form>
+</div>
+
+</body>
+
+<script>
+  function onSubmit() {
+    var original = $("#inputAuthoredText").val();
+    var checkDest = $("#inputCheckSource").val();
+    if (original !== undefined && checkDest !== undefined){
+      $.post( "127.0.0.1:8080/detect",{ template1: original, template2: checkDest }, function( data ) {
+        alert(data);
+      });
+    } else {
+      log("undefined "+ original+ "destination"+ checkDest)
+    }
+  }
+</script>
+</html>

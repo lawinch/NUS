@@ -16,14 +16,11 @@ public class PlagiarismDetectionController {
                              @RequestParam(value="template2", defaultValue="") String template2) {
         System.out.println("template1: " + template1);
         System.out.println("template2: " + template2);
-//        if (Utils.checkSimilarityBasic(template1, template2)) {
-//            return new Similarity(100, 100);
-//        }
         float wagnerFischer = new WagnerFischer().apply(template1, template2);
         float jaccard = new JaccardSimilarity().apply(template1, template2);
 
-        Similarity sim =  new Similarity(jaccard, wagnerFischer);
-        return String.format("Совпадение между двумя текстами %.2f%%", sim.getWagnerFischer());
+//        Similarity sim =  new Similarity(jaccard, wagnerFischer);
+        return String.format("Matching two texts: WagnerFischer Algorithm %.2f%% / %.2f%%", wagnerFischer, jaccard);
 
     }
 }
