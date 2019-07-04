@@ -35,6 +35,9 @@ public class WagnerFischer implements SimilarityAlgorithm {
      * Gets the percentage of similarity between to strings.
      */
     private float getPercentageSimilarity(int distance, int len1, int len2) {
+        if (len1 < len2) {
+            return Math.round(Math.abs((1.0f - (distance / ((float) Math.max(len1, len2)))) * Math.max(len1, len2)/Math.min(len1, len2)* 100.0f));
+        }
         return Math.round(Math.abs((1.0f - (distance / ((float) Math.max(len1, len2)))) * 100.0f));
     }
 
