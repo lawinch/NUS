@@ -38,6 +38,10 @@ public class WagnerFischer {
         return Math.round(Math.abs((1.0f - (distance / ((float) Math.max(len1, len2)))) * 100.0f));
     }
 
+    public static int computePercentage(int distance, int len1) {
+        return Math.round(((len1 - distance) / len1 * 100));
+    }
+
     /**
      * Fills the Levenshtein matrix.
      */
@@ -61,4 +65,14 @@ public class WagnerFischer {
         int distance = getLevenshteinDistance(words1, words2);
         return getPercentageSimilarity(distance, words1.length(), words2.length());
     }
+
+    public static int getSimilarityScore2(String template1, String template2) {
+        String words1 = Utils.getWords(template1);
+        String words2 = Utils.getWords(template2);
+        int distance = getLevenshteinDistance(words1, words2);
+        return computePercentage(distance, words1.length());
+    }
+
+
+
 }

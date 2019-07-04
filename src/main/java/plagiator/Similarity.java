@@ -2,22 +2,20 @@ package plagiator;
 
 public class Similarity {
 
-    private float percentage;
-    private float distance;
-    private String template1;
+    private float percentage1;
+    private float percentage2;
 
-    public Similarity(float distance, String template1) {
-        this.distance = distance;
-        this.template1 = template1;
-
-        this.computePercentage();
+    public Similarity(float percentage1, float percentage2) {
+        this.percentage1 = percentage1;
+        this.percentage2 = percentage2;
     }
 
-    private void computePercentage() {
-        percentage = (template1.length() - distance/ template1.length()) * 100;
+    public float getPercentage1() {
+        return percentage1;
     }
 
-    public float getPercentage() {
-        return percentage;
+    public float getPercentage2() {
+        return percentage2;
     }
+
 }

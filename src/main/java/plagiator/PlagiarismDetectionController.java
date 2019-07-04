@@ -13,7 +13,8 @@ public class PlagiarismDetectionController {
     @PostMapping
     public Similarity greeting(@RequestParam(value="template1", defaultValue="") String template1,
                              @RequestParam(value="template2", defaultValue="") String template2) {
-        float similarity = WagnerFischer.getSimilarityScore(template1, template2);
-        return new Similarity(similarity, template1);
+        float similarity1 = WagnerFischer.getSimilarityScore(template1, template2);
+        int similarity2 = WagnerFischer.getSimilarityScore2(template1, template2);
+        return new Similarity(similarity1, (float)similarity2);
     }
 }
