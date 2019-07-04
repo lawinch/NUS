@@ -63,7 +63,7 @@ public class WagnerFischer {
         return matrix;
     }
 
-    private float getSimilarityScore(String template1, String template2) {
+    public static float getSimilarityScore(String template1, String template2) {
         String words1 = Utils.getWords(template1);
         String words2 = Utils.getWords(template2);
         int distance = getLevenshteinDistance(words1, words2);
