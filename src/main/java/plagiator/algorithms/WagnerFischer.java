@@ -3,7 +3,7 @@ package plagiator.algorithms;
 import plagiator.Utils;
 
 /**
- * Represents the Wagner–Fischer algorithm.
+ * Represents the Wagner–Fischer algorithm
  */
 public class WagnerFischer {
     /**
