@@ -12,7 +12,7 @@ public class PlagiarismDetectionController {
 
     @RequestMapping("/detect")
     @PostMapping
-    public Similarity greeting(@RequestParam(value="template1", defaultValue="") String template1,
+    public String greeting(@RequestParam(value="template1", defaultValue="") String template1,
                              @RequestParam(value="template2", defaultValue="") String template2) {
         System.out.println("template1: " + template1);
         System.out.println("template2: " + template2);
@@ -22,6 +22,8 @@ public class PlagiarismDetectionController {
         float wagnerFischer = new WagnerFischer().apply(template1, template2);
         float jaccard = new JaccardSimilarity().apply(template1, template2);
 
-        return new Similarity(jaccard, wagnerFischer);
+        Similarity sim =  new Similarity(jaccard, wagnerFischer);
+        return String.format("Совпадение между двумя текстами %.2f%%", sim.getWagnerFischer());
+
     }
 }
